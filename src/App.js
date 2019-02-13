@@ -5,6 +5,7 @@ import Contact from "./components/Contact";
 import Header from "./components/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Contacts from "./components/Contacts";
+import { Provider } from "./Context";
 class App extends Component {
   render() {
     // const name = "Athiya";
@@ -21,15 +22,17 @@ class App extends Component {
     //   math = null;
     // }
     return (
-      <div className="App">
-        {/* <h1>The App Component</h1> */}
-        {/* {showHello ? <h4>Hello {name.toUpperCase()}</h4> : null}
-        {math} */}
-        <Header branding="Contact Manager" />
-        <div className="container">
-          <Contacts />
+      <Provider>
+        <div className="App">
+          {/* { <h1>The App Component</h1> }
+          { {showHello ? <h4>Hello {name.toUpperCase()}</h4> : null}
+        {math} } */}
+          <Header branding="Contact Manager" />
+          <div className="container">
+            <Contacts />
+          </div>
         </div>
-      </div>
+      </Provider>
     );
   }
 }
