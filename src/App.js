@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 // import "./App.css";
-import Contact from "./components/Contact";
-import Header from "./components/Header";
+import Contact from "./components/contact/Contact";
+import Header from "./components/layout/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Contacts from "./components/Contacts";
+import Contacts from "./components/contact/Contacts";
 import { Provider } from "./Context";
+import AddContact from "./components/contact/AddContact";
 class App extends Component {
   render() {
     // const name = "Athiya";
@@ -29,6 +30,7 @@ class App extends Component {
         {math} } */}
           <Header branding="Contact Manager" />
           <div className="container">
+            <AddContact />
             <Contacts />
           </div>
         </div>
