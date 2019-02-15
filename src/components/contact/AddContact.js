@@ -26,7 +26,7 @@ class AddContact extends Component {
     }
     if (phone === "") {
       this.setState({ errors: { phone: "Phone  is required" } });
-      return; 
+      return;
     }
     const newContact = {
       id: uuid(),
@@ -41,6 +41,7 @@ class AddContact extends Component {
       phone: "",
       errors: {}
     });
+    this.props.history.push("/");
     console.log("this.state", this.state);
   };
   render() {

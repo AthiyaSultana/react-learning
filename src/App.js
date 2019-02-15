@@ -7,6 +7,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Contacts from "./components/contact/Contacts";
 import { Provider } from "./Context";
 import AddContact from "./components/contact/AddContact";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import About from "./components/pages/About";
+import NotFound from "./components/pages/NotFound";
 class App extends Component {
   render() {
     // const name = "Athiya";
@@ -24,16 +27,19 @@ class App extends Component {
     // }
     return (
       <Provider>
-        <div className="App">
-          {/* { <h1>The App Component</h1> }
-          { {showHello ? <h4>Hello {name.toUpperCase()}</h4> : null}
-        {math} } */}
-          <Header branding="Contact Manager" />
-          <div className="container">
-            <AddContact />
-            <Contacts />
+        <Router>
+          <div className="App">
+            <Header branding="Contact Manager" />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Contacts} />
+                <Route exact path="/about/:id" component={About} />
+                <Route exact path="/contact/add" component={AddContact} />
+                <Route component={NotFound} />
+              </Switch>
+            </div>
           </div>
-        </div>
+        </Router>
       </Provider>
     );
   }
